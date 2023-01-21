@@ -1,0 +1,3 @@
+/home/tesfa/projects/L&D/Data Stracture/C/Arrays - DS/cmake-build-debug/CMakeFiles/Arrays___DS.dir
+/home/tesfa/projects/L&D/Data Stracture/C/Arrays - DS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tesfa/projects/L&D/Data Stracture/C/Arrays - DS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
