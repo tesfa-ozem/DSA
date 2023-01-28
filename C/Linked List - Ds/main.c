@@ -19,6 +19,39 @@ void printList(Node *n)
     }
     printf("\n");
 }
+// Insert operation at nth index
+
+void insertNodeAtIndex(int data, Node *n,int index)
+{
+    int count = 1;
+    Node* prev;
+    Node* next;
+    if(index==0){
+        Node *newNode = (Node *)malloc(sizeof(Node));
+        newNode->data = data;
+        newNode->next = n;
+        head = newNode;
+    }else{
+        while (next!=NULL)
+        {
+            
+            prev = n;
+            next = prev->next;
+            if(count!=index)
+            {
+               n = n->next;
+            }else
+            {
+                Node *newNode = (Node *)malloc(sizeof(Node));
+                prev->next = newNode;
+                newNode->next = next;
+                newNode->data = data;
+            }
+            count++;
+        }
+        
+    }
+}
 
 // Insert operation
 void insertNode(int data, Node *n)
@@ -42,7 +75,46 @@ void insertNode(int data, Node *n)
         newNode->data = data;
     }
 }
-// Search
+// Pop item from front
+
+int popFront(Node *h)
+{
+    int value = h->data;
+    head = h->next;
+    free(h);
+
+    return value;
+}
+
+// Pop item from back
+
+int popBack(Node *h)
+{
+    Node* temp;
+    temp = h;
+    Node * prev;
+    int value;
+    while (temp!=NULL)
+    {
+        if(temp->next!=NULL)
+        {
+            prev = temp;
+            temp = temp->next;
+        }
+        else
+        {
+            prev->next = NULL;
+            value = temp->data;
+            free(temp);
+            return value;
+        }
+        
+
+    }
+    // 
+    
+    
+}
 
 // Get the size of the linkedlist
 
@@ -74,7 +146,7 @@ Node* value_at(int index, Node *h)
             return temp;
         }
         postion++;
-        printf("current postion = %d \n\n", postion);
+        
     }
 
     
@@ -89,8 +161,11 @@ int main(int argc, char const *argv[])
     insertNode(5, head);
     insertNode(6, head);
     // Node * val = value_at(1,head);
+    // popFront(head);
+    popBack(head);
+    // insertNodeAtIndex(7,head, 10);
     printList(head);
-    printf("List length = %d \n\n", getSize(head));
-    printf("Index of 2 is = %d", value_at(2,head)->data);
+    // printf("List length = %d \n\n", getSize(head));
+    // printf("Index of 2 is = %d", value_at(2,head)->data);
     return 0;
 }
